@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    //para traduzir o viewmodel e copiar para o ios
+    //https://skie.touchlab.co/intro
 }
 
 kotlin {
@@ -11,7 +13,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -28,7 +30,7 @@ kotlin {
             //put your multiplatform dependencies here
             //
             implementation(libs.coroutines.ktx)
-        }
+         }
 
         iosMain.dependencies {
 
