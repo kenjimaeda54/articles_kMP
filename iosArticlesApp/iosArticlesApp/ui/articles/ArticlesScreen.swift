@@ -24,7 +24,7 @@ struct ArticlesScreen: View {
 				Text("Problema no servidor")
 			}
 			
-			if let isLoading = articleState.articles.isLoading as? Bool, let data = articleState.articles.data as? [Article] {
+			if let isLoading = articleState.articles.isLoading as? Bool, let data = articleState.articles.data as? [ArticleModel] {
 				
 				if(isLoading) {
 					Text("Carregando")

@@ -12,7 +12,7 @@ import URLImage
 
 
 struct ListArticles: View {
-	let articles: [Article]
+	let articles: [ArticleModel]
 	var body: some View {
 		
 		List(articles,id: \.id) { article in

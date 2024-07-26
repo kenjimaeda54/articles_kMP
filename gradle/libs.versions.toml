@@ -6,10 +6,19 @@ compose = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 viewModel-ktx = "2.8.3"
-coroutines-ktx = "1.8.0"
-lifecycleViewmodelAndroid = "2.8.3"
+
+#dependencias adicionadas
+coroutines-ktx = "1.8.1"
+lifecycleViewmodelAndroid = "2.8.4"
+ktorClientCore = "2.2.4"
+ktorSerializationJson = "2.2.4"
+ktorClientContentNegotiation = "2.2.4"
+ktorClientAndroid = "2.2.4"
+ktorClientDarwin = "2.2.4"
+kotlinxDatetime = "0.6.0"
 
 [libraries]
+benasher44-uuid = { module = "com.benasher44:uuid" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 kotlin-stdlib-jdk7 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk7" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -19,9 +28,17 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+androidx-lifecycle-viewmodel-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" } #precisa dessa
+
+#dependencias adicionadas
 viewModel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "viewModel-ktx" }
 coroutines-ktx = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-ktx" } #precisa dessa
-androidx-lifecycle-viewmodel-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" } #precisa dessa
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientCore" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationJson" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClientContentNegotiation" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorClientAndroid" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorClientDarwin" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime",version.ref = "kotlinxDatetime" }
 
 
 [plugins]

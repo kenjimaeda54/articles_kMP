@@ -21,14 +21,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.articleskmp.util.model.Article
+import com.example.articleskmp.util.model.ArticleModel
 
 @Composable
-fun ListArticles(articles: List<Article>) {
+fun ListArticles(articleModels: List<ArticleModel>) {
 
     LazyColumn {
-        items(articles.size) { index ->
-            ArticleItem(article = articles[index])
+        items(articleModels.size) { index ->
+            ArticleItem(articleModel = articleModels[index])
         }
     }
 
@@ -36,7 +36,7 @@ fun ListArticles(articles: List<Article>) {
 
 
 @Composable
-fun ArticleItem(article: Article) {
+fun ArticleItem(articleModel: ArticleModel) {
 
     Column(modifier = Modifier.padding(horizontal = 13.dp, vertical = 20.dp)) {
         AsyncImage(
@@ -44,13 +44,13 @@ fun ArticleItem(article: Article) {
                 .fillMaxWidth()
                 .height(200.dp)
                 .clip(RoundedCornerShape(20.dp)),
-            model = ImageRequest.Builder(LocalContext.current).data(article.imageUrl)
+            model = ImageRequest.Builder(LocalContext.current).data(articleModel.imageUrl)
                 .crossfade(true).build(),
             contentDescription = "Image Article", contentScale = ContentScale.FillBounds
         )
         Spacer(modifier = Modifier.height(10.dp))
         Text(
-            text = article.title, maxLines = 2, overflow = TextOverflow.Ellipsis,
+            text = articleModel.title, maxLines = 2, overflow = TextOverflow.Ellipsis,
             style = TextStyle(
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 18.sp
@@ -58,7 +58,7 @@ fun ArticleItem(article: Article) {
         )
         Spacer(modifier = Modifier.height(5.dp))
         Text(
-            text = article.description,
+            text = articleModel.description,
             maxLines = 3,
             overflow = TextOverflow.Ellipsis,
             style = TextStyle(
@@ -70,7 +70,7 @@ fun ArticleItem(article: Article) {
             modifier = Modifier
                 .padding(vertical = 10.dp)
                 .align(alignment = Alignment.End),
-            text = article.date, style = TextStyle(fontSize = 12.sp, fontWeight = FontWeight.Light)
+            text = articleModel.date, style = TextStyle(fontSize = 12.sp, fontWeight = FontWeight.Light)
         )
 
     }

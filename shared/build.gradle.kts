@@ -1,8 +1,10 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    //para traduzir o viewmodel e copiar para o ios
-    //https://skie.touchlab.co/intro
+
+    //plugin para serilazation
+    kotlin("plugin.serialization") version("1.9.20")
+
 }
 
 kotlin {
@@ -28,16 +30,21 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             //put your multiplatform dependencies here
-            //
             implementation(libs.coroutines.ktx)
-         }
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.serialization.json)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.kotlinx.datetime)
+
+          }
 
         iosMain.dependencies {
-
+            implementation(libs.ktor.client.darwin)
         }
 
         androidMain.dependencies {
             implementation(libs.viewModel.ktx)
+            implementation(libs.ktor.client.android)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

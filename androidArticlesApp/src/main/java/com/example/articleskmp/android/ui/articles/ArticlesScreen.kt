@@ -1,5 +1,6 @@
 package com.example.articleskmp.android.ui.articles
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,6 +24,8 @@ import com.example.articleskmp.util.viewmodel.ArticlesViewModel
 fun ArticlesScreen() {
     val articlesViewModel = ArticlesViewModel()
     val articles by articlesViewModel.articles.collectAsState()
+
+
 
 
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -57,6 +60,8 @@ fun ArticlesScreen() {
                 }
 
             } else if (articles.exception != null) {
+
+
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -66,7 +71,7 @@ fun ArticlesScreen() {
                 }
 
             } else {
-                ListArticles(articles = articles.data!!)
+                ListArticles(articleModels = articles.data!!)
             }
         }
 
