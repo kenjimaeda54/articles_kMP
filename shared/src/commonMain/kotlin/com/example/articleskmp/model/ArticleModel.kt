@@ -1,5 +1,6 @@
 package com.example.articleskmp.util.model
 
+import com.example.articleskmp.db.ArticlesData
 import com.example.articleskmp.model.ArticlesResponse
 import com.example.articleskmp.util.formatDate
 import kotlin.random.Random.Default.nextDouble
@@ -23,3 +24,11 @@ fun ArticlesResponse.toArticleModel() = ArticleModel(
     date = formatDate(publishedAt)
 )
 
+
+fun ArticlesData.toArticleModel() =  ArticleModel(
+    id =  "${(nextDouble() * 13224343 + nextFloat() + nextDouble() * 3403403403 ) } $title $publishedAt",
+    title = title,
+    description = description ?: "Without description",
+    imageUrl = urlToImage ?: "https://media.istockphoto.com/id/1147544807/pt/vetorial/thumbnail-image-vector-graphic.webp?s=1024x1024&w=is&k=20&c=UdpQxmFWK0gkGWWYztnDThtFsBZik9eDGrxyQ4rYCEs=" ,
+    date = formatDate(publishedAt)
+)

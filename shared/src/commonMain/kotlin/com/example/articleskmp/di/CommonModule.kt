@@ -3,6 +3,8 @@ package com.example.articleskmp.di
 import com.example.articleskmp.client.ArticlesClient
 import com.example.articleskmp.client.KtorApi
 import com.example.articleskmp.client.KtorApiImplementation
+import com.example.articleskmp.db.ArticlesDB
+import com.example.articleskmp.local.ArticleLocalSource
 import com.example.articleskmp.remote.ArticleRemoteSource
 import com.example.articleskmp.repository.ArticleRepository
 import com.example.articleskmp.util.viewmodel.ArticlesViewModel
@@ -16,7 +18,9 @@ fun initKoin(appDeclaration: KoinAppDeclaration) = startKoin {
     modules(
         clientModule,
         viewModelModule,
-        repositoryModule
+        repositoryModule,
+        driverSQLModule,
+        coreDatabase
     )
 }
 
@@ -32,6 +36,11 @@ private val viewModelModule = module {
 private val repositoryModule = module {
     single { ArticleRemoteSource(get()) }
     single { ArticleRepository() }
+    single { ArticleLocalSource(get()) }
+}
+
+private val coreDatabase = module {
+    single { ArticlesDB(get()) }
 }
 
 fun initKoin() = initKoin {  }

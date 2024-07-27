@@ -13,7 +13,10 @@ plugins {
 
     //plugin para gerar o viewModel para IOS
     id("co.touchlab.skie") version "0.8.3"
-}
+
+    //plugin sqldelight
+    alias(libs.plugins.sqldelight)
+ }
 
 
 
@@ -60,18 +63,24 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
+            implementation(libs.sql.coroutines.extensions)
           }
 
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+            implementation(libs.sql.native.driver)
         }
 
         androidMain.dependencies {
             implementation(libs.viewModel.ktx)
             implementation(libs.ktor.client.android)
+            implementation(libs.koin.android)
+            implementation(libs.sql.android.driver)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.sql.native.driver)
+
         }
     }
 }
@@ -89,4 +98,13 @@ android {
 }
 dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.android)
+}
+
+
+sqldelight {
+    databases {
+        create("ArticlesDB") {
+            packageName = "com.example.articleskmp.db"
+         }
+     }
 }
