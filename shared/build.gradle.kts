@@ -56,7 +56,7 @@ kotlin {
             implementation(libs.ktor.serialization.json)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.kotlinx.datetime)
-
+            implementation(libs.koin.core)
           }
 
         iosMain.dependencies {

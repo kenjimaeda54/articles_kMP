@@ -43,6 +43,11 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+
     //coil, para carrgar imagens
     implementation(libs.coil.compose)
+
+    //koin , para injetar dependencias
+    implementation(libs.koin.androidx.core)
+    implementation(libs.koin.android)
 }

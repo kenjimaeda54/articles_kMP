@@ -16,6 +16,9 @@ ktorClientContentNegotiation = "2.2.4"
 ktorClientAndroid = "2.2.4"
 ktorClientDarwin = "2.2.4"
 kotlinxDatetime = "0.6.0"
+koinAndroidxCore = "3.5.6"
+koinAndroid = "3.5.6"
+koinCore = "3.5.6"
 
 [libraries]
 benasher44-uuid = { module = "com.benasher44:uuid" }
@@ -39,6 +42,11 @@ ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negoti
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorClientAndroid" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorClientDarwin" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime",version.ref = "kotlinxDatetime" }
+koin-androidx-core = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCore" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
+
+
 
 
 [plugins]

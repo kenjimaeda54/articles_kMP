@@ -9,9 +9,11 @@ import kotlinx.coroutines.launch
 import com.example.articleskmp.util.model.ArticleModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
 
-class ArticlesViewModel: BaseViewModel() {
+class ArticlesViewModel: BaseViewModel(),KoinComponent {
     private val _articles = MutableStateFlow<DataOrException<List<ArticleModel>, Exception, Boolean>>(
         DataOrException(
         data = null,
@@ -20,7 +22,7 @@ class ArticlesViewModel: BaseViewModel() {
     )
     )
     val articles: StateFlow<DataOrException<List<ArticleModel>, Exception, Boolean>> get()  = _articles
-    private  var articleRepository: ArticleRepository = ArticleRepository()
+    private val articleRepository: ArticleRepository by  inject()
 
     init {
         getArticles()
