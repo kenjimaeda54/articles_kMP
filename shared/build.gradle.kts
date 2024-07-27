@@ -11,8 +11,11 @@ plugins {
     //plugin para gerar build config
     id("com.github.gmazzo.buildconfig") version "5.4.0"
 
-
+    //plugin para gerar o viewModel para IOS
+    id("co.touchlab.skie") version "0.8.3"
 }
+
+
 
 
 kotlin {

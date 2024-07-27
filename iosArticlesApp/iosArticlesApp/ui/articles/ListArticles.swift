@@ -15,15 +15,25 @@ struct ListArticles: View {
 	let articles: [ArticleModel]
 	var body: some View {
 		
-		List(articles,id: \.id) { article in
+		List(articles,id: \.self ) { article in
 			VStack(spacing: 3){
 				
-				URLImage(URL(string: article.imageUrl )!) { image in
+				//precisar criar umma moldura identico a imagem que vai ser carregado da internet
+				//se nao quando estiver carregando a imagem ira baguncar a UI
+				URLImage(URL(string: article.imageUrl )!) {
+					EmptyView()
+				} inProgress: { progress in
+					Image("notfound")
+						.resizable()
+						.frame(height: 230)
+						.clipShape(RoundedRectangle(cornerRadius: 20))
+				}failure: { error, retry in
+					EmptyView()
+				}  content: { image in
 					image
 						.resizable()
 						.frame(height: 230)
 						.clipShape(RoundedRectangle(cornerRadius: 20))
-					
 				}
 				Text(article.title)
 					.frame(maxWidth: .infinity,alignment: .leading)
@@ -42,16 +52,17 @@ struct ListArticles: View {
 				
 				
 			}
-			.listRowInsets(.none)
+ 			.listRowInsets(.none)
 			.listRowBackground(Color.clear)
 			.listRowSeparator(.hidden)
-			.padding(EdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0))
 			
 		}
 		.listStyle(.plain)
 		.scrollContentBackground(.hidden)
 		.padding(EdgeInsets(top: 20, leading: 13, bottom: 20, trailing: 13))
 		.scrollIndicators(.hidden)
+			 
+
 	
 	}
 }

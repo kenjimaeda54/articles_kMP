@@ -20,27 +20,30 @@ struct ArticlesScreen: View {
 				.font(.system(size: 20,design: .rounded))
 				.fontWeight(.bold)
 			
-			if(articleState.articles.exception != nil) {
-				Text("Problema no servidor")
-			}
 			
-			if let isLoading = articleState.articles.isLoading as? Bool, let data = articleState.articles.data as? [ArticleModel] {
-				
-				if(isLoading) {
+			switch articleState.loading {
+				case .failure:
+					Text("Problema no servidor")
+					
+				case .loading:
 					Text("Carregando")
-				}
-				
-				
-				
-				if(data.isEmpty) {
-					Text("Nao tem artigos")
-				}else {
-					ListArticles(articles: data)
-				}
-				
+					
+				case .sucess:
+					if(articleState.articlesModel.isEmpty) {
+						Text("Nao tem artigos")
+						
+					}else {
+						ListArticles(articles: articleState.articlesModel)
+					}
+					
 			}
+		
+		}
+		.task {
+			  await articleState.fetchArticles()
 		}
 	}
+		
 }
 
 

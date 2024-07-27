@@ -3,12 +3,10 @@ package com.example.articleskmp.util.viewmodel
 import com.example.articleskmp.repository.ArticleRepository
 import com.example.articleskmp.util.BaseViewModel
 import com.example.articleskmp.util.data.DataOrException
+import com.example.articleskmp.util.model.ArticleModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import com.example.articleskmp.util.model.ArticleModel
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
@@ -30,16 +28,12 @@ class ArticlesViewModel: BaseViewModel(),KoinComponent {
 
 
 
-    private fun getArticles() {
+    private  fun getArticles() {
         scope.launch {
             _articles.value = articleRepository.fetchArticles()
          }
      }
 
-     fun observeArticles(onchange: (DataOrException<List<ArticleModel>, Exception, Boolean>) -> Unit) {
-          articles.onEach {
-              onchange(it)
-          }.launchIn(scope)
-     }
+
 
 }

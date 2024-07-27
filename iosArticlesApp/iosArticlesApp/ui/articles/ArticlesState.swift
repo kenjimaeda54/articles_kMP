@@ -11,19 +11,36 @@ import shared
 
 class ArticlesState: ObservableObject {
 	
-	let viewModel: ArticlesViewModel
-	@Published var articles: DataOrException<NSArray, KotlinException, KotlinBoolean> = DataOrException(data: [], exception: nil, isLoading: true)
+	@Published var loading = LoadingState.loading
+	let viewModel: ArticlesViewModel = ArticlesViewModel()
+	var articlesModel: [ArticleModel] = []
 	
 	
-	init() {
-		viewModel = ArticlesViewModel()
-		viewModel.observeArticles { it in
-			self.articles = it
-		}
-	}
+	//trabalhar com skie mais flow
+	//https://skie.touchlab.co/features/flows	@MainActor
+	func fetchArticles() async  {
+    
+		for await viewModel in viewModel.articles {
+			
+			if(viewModel.exception != nil){
+				loading = .failure
+			}
+			
+			if let data = viewModel.data as? [ArticleModel] {
+				self.loading = .sucess
+				self.articlesModel = data
+			}
+			
+			
+ 		}
 		
+	}
+	
+	
+	
+	
 	deinit {
 		viewModel.clear()
 	}
-
+	
 }
