@@ -64,11 +64,21 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
             implementation(libs.sql.coroutines.extensions)
-          }
+            //para copilar no ios sqlite precisei dessas dependencias
+            //tambem precisei adicionar o libsquilet3.tb
+            //target > build phases > Link Binary With Librarys > add libsquilet3.tb
+            implementation(libs.touchlab.stately.common)
+            ///
+
+           }
 
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
             implementation(libs.sql.native.driver)
+            //para copilar o sqlite no ios precisei dessas dependencais
+            implementation(libs.touchlab.stately.isolate.collections)
+            implementation(libs.touchlab.stately.isolate)
+            //
         }
 
         androidMain.dependencies {
@@ -79,7 +89,6 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
-            implementation(libs.sql.native.driver)
 
         }
     }
@@ -100,6 +109,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.android)
 }
 
+
+//sqldeligth
+//https://cashapp.github.io/sqldelight/2.0.0/multiplatform_sqlite/
 
 sqldelight {
     databases {

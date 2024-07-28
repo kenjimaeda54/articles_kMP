@@ -11,6 +11,7 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		812683F22C551DC30039862F /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812683F12C551DC30039862F /* LoadingState.swift */; };
+		812683F52C55C2210039862F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 812683F32C55AB160039862F /* libsqlite3.0.tbd */; };
 		81330B8C2C527CA5000E6495 /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81330B8B2C527CA5000E6495 /* ArticlesScreen.swift */; };
 		81330B8F2C527D92000E6495 /* ArticlesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81330B8E2C527D92000E6495 /* ArticlesState.swift */; };
 		81A0A9962C52BD9000E2AFA0 /* ListArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0A9952C52BD9000E2AFA0 /* ListArticles.swift */; };
@@ -38,6 +39,7 @@
 		7555FF7B242A565900829871 /* iosArticlesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosArticlesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		812683F12C551DC30039862F /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		812683F32C55AB160039862F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		81330B8B2C527CA5000E6495 /* ArticlesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
 		81330B8E2C527D92000E6495 /* ArticlesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesState.swift; sourceTree = "<group>"; };
 		81A0A9952C52BD9000E2AFA0 /* ListArticles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListArticles.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				812683F52C55C2210039862F /* libsqlite3.0.tbd in Frameworks */,
 				81A0A99B2C52D45400E2AFA0 /* URLImageStore in Frameworks */,
 				81A0A9992C52D45400E2AFA0 /* URLImage in Frameworks */,
 			);
@@ -97,6 +100,7 @@
 		7555FFB0242A642200829871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				812683F32C55AB160039862F /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

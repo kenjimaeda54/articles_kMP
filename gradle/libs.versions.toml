@@ -5,6 +5,8 @@ kotlin = "2.0.0"
 compose = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
+statelyCommon = "1.2.1"
+statelyIsolate = "0.12.0"
 viewModel-ktx = "2.8.3"
 
 #dependencias adicionadas
@@ -36,7 +38,9 @@ compose-material3 = { module = "androidx.compose.material3:material3", version.r
 androidx-lifecycle-viewmodel-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" } #precisa dessa
 
 #dependencias adicionadas
-touchlab-stately-common = { module = "co.touchlab:stately-common" }
+touchlab-stately-common = { module = "co.touchlab:stately-common",version.ref = "statlyCommon" }
+touchlab-stately-isolate = { module = "co.touchlab:stately-isolate",version.ref = "statlyCommon"}
+touchlab-stately-isolate-collections = { module = "co.touchlab:stately-iso-collections",version.ref = "statlyCommon"}
 viewModel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "viewModel-ktx" }
 coroutines-ktx = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-ktx" } #precisa dessa
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientCore" }
@@ -51,7 +55,6 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
 sql-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDeligth" }
 sql-native-driver = {module = "app.cash.sqldelight:native-driver", version.ref = "sqlDeligth"}
 sql-android-driver = {module = "app.cash.sqldelight:android-driver",version.ref ="sqlDeligth"}
-
 
 
 [plugins]

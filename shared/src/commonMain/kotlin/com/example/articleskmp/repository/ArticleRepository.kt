@@ -21,8 +21,7 @@ class ArticleRepository: KoinComponent {
     suspend fun fetchArticles(): DataOrException<List<ArticleModel>, Exception, Boolean> {
         return  try {
             val articlesDB = articleLocalSource.getArticles()
-            println("quantidade ${articlesDB.size}")
-            if(articlesDB.isNotEmpty()) {
+             if(articlesDB.isNotEmpty()) {
                 return DataOrException(
                     data = articlesDB,
                     exception = null,
@@ -32,13 +31,13 @@ class ArticleRepository: KoinComponent {
             val articlesResponse = articleRemoteSource.fetchArticles().articles
             val articles = articlesResponse.map { it.toArticleModel() }
             articleLocalSource.insertAllArticle(articlesResponse)
-             DataOrException(
+               DataOrException(
                 data = articles,
                 exception = null,
                 isLoading = false
             )
         } catch (e: Exception) {
-            DataOrException(
+             DataOrException(
                 data = null,
                 exception = e,
                 isLoading = false
