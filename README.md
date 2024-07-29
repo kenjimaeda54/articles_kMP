@@ -3,7 +3,7 @@ Projeto para consultar as principais notícias do Brasil sobre negócios
 
 
 ## Motivacao
-- Aprender uso do KMP , utilizar MVVM e ofiline first
+- Aprender uso do KMP , utilizar MVVM e offline first
 
 ## Features
 - Novamente usei buildConfig para guardar minhas chaves de API, em cross plataforma muda bem pouco do padrão.
