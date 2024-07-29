@@ -130,7 +130,7 @@ val articles by articlesViewModel.articles.collectAsState()
 
 
 //no IOS precisamos fazer um warp
-//preciso do MainActor se nao ira acusar erro que o @Published nao pode ser sofrer update no main
+//preciso do MainActor se nao ira acusar erro que o @Published nao pode ser sofrer update no tread principal
 //preciso do skie para comunicar
 
 @MainActor
