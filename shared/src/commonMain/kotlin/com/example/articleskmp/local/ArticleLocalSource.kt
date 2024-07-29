@@ -10,7 +10,7 @@ import com.example.articleskmp.util.model.toArticleModel
 class ArticleLocalSource(private val database: ArticlesDB)  {
 
 
-    fun getArticles(): List<ArticleModel> {
+      fun getArticles(): List<ArticleModel> {
       return database.articlesDBQueryQueries.getAllArticle().executeAsList().map {
           it.toArticleModel()
       }

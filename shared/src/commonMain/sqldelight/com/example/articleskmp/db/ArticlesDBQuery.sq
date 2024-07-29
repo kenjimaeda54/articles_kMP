@@ -10,7 +10,7 @@ INSERT INTO ArticlesData (title, description, urlToImage, publishedAt)
 VALUES (?, ?, ?, ?);
 
 removeAllArticle:
-DELETE FROM ArticlesData;
+DELETE  FROM ArticlesData;
 
 getAllArticle:
 SELECT  ArticlesData.* FROM ArticlesData;

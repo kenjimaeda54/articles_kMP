@@ -9,6 +9,7 @@
 import Foundation
 import shared
 
+@MainActor
 class ArticlesState: ObservableObject {
 	
 	@Published var loading = LoadingState.loading
@@ -19,7 +20,7 @@ class ArticlesState: ObservableObject {
 	//trabalhar com skie mais flow
 	//https://skie.touchlab.co/features/flows	@MainActor
 	func fetchArticles() async  {
-    
+		loading = .loading
 		for await viewModel in viewModel.articles {
 			
 			if(viewModel.exception != nil){
@@ -32,7 +33,12 @@ class ArticlesState: ObservableObject {
 			}
 			
 			
- 		}
+		}
+		
+	}
+	
+	func refreshDataArticles() {
+		viewModel.getArticles(isForcingRefreshing: true)
 		
 	}
 	

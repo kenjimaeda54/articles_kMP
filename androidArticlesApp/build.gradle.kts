@@ -50,4 +50,7 @@ dependencies {
     //koin , para injetar dependencias
     implementation(libs.koin.androidx.core)
     implementation(libs.koin.android)
+
+    //swipe refresh
+    implementation(libs.swwipe.refresh)
 }

@@ -61,7 +61,8 @@ struct ListArticles: View {
 		.scrollContentBackground(.hidden)
 		.padding(EdgeInsets(top: 20, leading: 13, bottom: 20, trailing: 13))
 		.scrollIndicators(.hidden)
-			 
+ 
+		
 
 	
 	}

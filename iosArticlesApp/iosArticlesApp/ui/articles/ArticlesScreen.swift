@@ -34,25 +34,19 @@ struct ArticlesScreen: View {
 						
 					}else {
 						ListArticles(articles: articleState.articlesModel)
+							.refreshable {
+								articleState.refreshDataArticles()
+							}
 					}
 					
 			}
-		
+			
 		}
 		.task {
-			  await articleState.fetchArticles()
+			await articleState.fetchArticles()
 		}
 	}
-		
+	
 }
 
 
-//if let data = articleState.articles.data {
-//if(data.count > 0){
-
-//if let articles = data as? [Article] {
-//Text(articles[ ])
-//}
-
-//}
-//}

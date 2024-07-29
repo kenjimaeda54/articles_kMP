@@ -26,11 +26,9 @@ class ArticlesViewModel: BaseViewModel(),KoinComponent {
         getArticles()
     }
 
-
-
-    private  fun getArticles() {
+    fun getArticles(isForcingRefreshing: Boolean = false) {
         scope.launch {
-            _articles.value = articleRepository.fetchArticles()
+            _articles.value = articleRepository.fetchArticles(isForcingRefreshing)
          }
      }
 
