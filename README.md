@@ -1,12 +1,13 @@
 # Articles
 Projeto para consultar as principais notícias do Brasil sobre negócios
-
+  
 
 ## Motivacao
 - Aprender uso do KMP , utilizar MVVM e offline first
 
 ## Features
-- Novamente usei buildConfig para guardar minhas chaves de API, em cross plataforma muda bem pouco do padrão.
+- [Referencia de reposiotrio](https://github.com/hlnstepanova/kmpizza-repo)
+- IOS precisa copilar código nativo toda vez que alterar algo no shared, motivo não estou usando Cocoapods ,mas uma implementação do próprio KMP para gerar as dependências- Novamente usei buildConfig para guardar minhas chaves de API, em cross plataforma muda bem pouco do padrão.
 - Para funcionar, o projeto precisa obter sua  [api_Key](https://newsapi.org/) no site.
 - Precisa adicionar a variável no arquivo local.properties, [este artigo](https://stackoverflow.com/questions/20673378/where-does-local-properties-go-for-android-project) consegue localizar onde está o arquivo.
 
